@@ -124,6 +124,19 @@ Override via `OPENCLAW_CONFIG_PATH` env var.
       botToken: "xoxb-...",
       signingSecret: "...",     // For HTTP mode
     },
+    msteams: {
+      enabled: true,
+      appId: "your-azure-app-id",
+      appPassword: "your-azure-app-password",
+      tenantId: "your-azure-tenant-id",
+      dmPolicy: "pairing",
+    },
+    qq: {
+      enabled: true,
+      appId: "your-qq-app-id",
+      appSecret: "your-qq-app-secret",
+      dmPolicy: "pairing",
+    },
   },
 }
 ```
@@ -164,6 +177,10 @@ Override via `OPENCLAW_CONFIG_PATH` env var.
       imageMaxDimensionPx: 1200,  // Image downscaling (reduces vision-token usage)
       heartbeat: {
         every: "30m",
+      },
+      memorySearch: {
+        maxResults: 5,
+        minScore: 0.7,           // Filter matches below this threshold
       },
       compaction: { ... },
       contextPruning: { ... },

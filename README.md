@@ -24,9 +24,11 @@ laoli-openclaw-skill/
 └── references/
     ├── channels.md              # 20+ channel setup guides (WhatsApp, Telegram, Discord, etc.)
     ├── gateway_ops.md           # Gateway architecture, service management, remote access
+    ├── memory.md                # Memory: semantic indexing, recall, promotion flow
     ├── multi_agent.md           # Multi-agent routing, bindings, per-agent config
     ├── providers.md             # 20+ model providers (Anthropic, OpenAI, Ollama, etc.)
     └── security.md              # Auth, access control, hardening baseline, incident response
+```
 ```
 
 **Total: ~1,400 lines** of structured reference covering all core OpenClaw functionality.

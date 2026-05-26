@@ -29,6 +29,7 @@ OpenClaw is a self-hosted, open-source (MIT) gateway that routes AI agents acros
 | [security.md](references/security.md) | Security hardening |
 | [secrets.md](references/secrets.md) | Secrets management (SecretRef, vault) |
 | [sandboxing.md](references/sandboxing.md) | Sandboxing (Docker isolation) |
+| [memory.md](references/memory.md) | Memory: semantic indexing, recall, and promotion |
 | [config_reference.md](references/config_reference.md) | Full config field reference |
 | [gateway_ops.md](references/gateway_ops.md) | Gateway operations |
 | [remote_access.md](references/remote_access.md) | Remote access, SSH, Tailscale, web dashboard |
@@ -55,10 +56,26 @@ openclaw gateway status            # Gateway daemon status
 openclaw gateway status --deep     # Deep scan including system services
 openclaw doctor                    # Diagnose config/service issues
 openclaw doctor --fix              # Auto-fix safe issues
+openclaw doctor --deep             # Deep diagnostic check
 openclaw logs --follow             # Tail gateway logs
 openclaw channels status --probe   # Channel health check
 openclaw security audit            # Security posture check
+openclaw security audit --deep     # Deep security posture audit
 openclaw security audit --fix      # Auto-fix security issues
+
+# Memory (Semantic Knowledge & Recall)
+openclaw memory status             # Reports memory plugin health
+openclaw memory status --deep      # Probes vector store & embedding provider
+openclaw memory index              # Re-creates vector indexes (--force to rebuild)
+openclaw memory status --fix       # Repairs recall locks and metadata
+openclaw memory search "query"     # Searches active memory wiki
+openclaw memory promote            # Previews promotion candidates (--apply to commit)
+openclaw memory promote-explain    # Explains candidate score breakdown
+
+# TaskFlow (Persistent flows)
+openclaw tasks flow list           # Lists active background TaskFlows
+openclaw tasks flow show <lookup>  # Shows details for a specific flow (ID or owner)
+openclaw tasks flow cancel <id>    # Cancels a running TaskFlow
 ```
 
 ### Default Gateway
@@ -102,6 +119,7 @@ Edit config via any method:
 ```bash
 # Interactive wizard
 openclaw onboard                    # Full setup
+openclaw onboard --install-daemon   # Full setup with daemon installation
 openclaw configure                  # Config wizard
 
 # CLI one-liners

@@ -24,6 +24,12 @@ Key principles:
 - For multiple untrusted users, use separate gateways (ideally separate hosts)
 - Gateway authenticated callers are trusted at gateway scope
 
+### 🔒 2026 Security Hardening Update
+Following the 2026 security audits, a major privilege containment and workspace integrity update was deployed:
+- **Workspace Integrity:** Enhanced traversal guards prevent any directory escape via tools or custom scripts.
+- **Privilege Containment:** Tightened container/Docker tool sandboxing prevents host machine exposure when executing untrusted skills.
+- **Network Hardening:** Aggressive loopback enforcement for dashboard access, blocking external RPC probes unless explicitly token-authenticated.
+
 ## Quick Audit
 
 ```bash

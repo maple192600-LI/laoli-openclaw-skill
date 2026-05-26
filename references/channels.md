@@ -151,6 +151,52 @@ Uses `signal-cli`. Requires separate signal-cli setup and registration.
 
 Legacy iMessage via `imsg` CLI is deprecated.
 
+## Microsoft Teams
+
+Microsoft Teams is a bundled plugin. It uses the Microsoft Bot Framework and requires registration via the Azure Bot service.
+
+Config:
+
+```json5
+{
+  channels: {
+    msteams: {
+      enabled: true,
+      appId: "your-azure-app-id",
+      appPassword: "your-azure-app-password",
+      tenantId: "your-azure-tenant-id",
+      dmPolicy: "pairing",            // pairing | allowlist | open | disabled
+      allowFrom: ["aad-object-id"],   // AAD object IDs
+    },
+  },
+}
+```
+
+*Note: Microsoft Teams requires a public-facing tunnel (e.g., ngrok or Tailscale Funnel) to forward the Azure webhook calls to your local gateway's `/api/messages` endpoint.*
+
+## QQ Bot
+
+QQ support is provided via the official QQ Bot API.
+
+Config:
+
+```json5
+{
+  channels: {
+    qq: {
+      enabled: true,
+      appId: "your-qq-app-id",
+      appSecret: "your-qq-app-secret",
+      dmPolicy: "pairing",
+    },
+  },
+}
+```
+
+Requirements:
+- Register your bot at the [Tencent QQ Open Platform](https://q.qq.com/) to obtain credentials.
+- Ensure your network is allowed or configured if using a cloud lighthouse deployment (like Tencent Cloud Lighthouse).
+
 ## Other Channels (Plugins)
 
 ```bash

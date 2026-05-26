@@ -24,9 +24,11 @@ laoli-openclaw-skill/
 └── references/
     ├── channels.md              # 20+ 频道配置指南（WhatsApp、Telegram、Discord 等）
     ├── gateway_ops.md           # Gateway 架构、服务管理、远程访问
+    ├── memory.md                # 记忆系统：语义索引、召回、长期记忆晋升流程
     ├── multi_agent.md           # 多 Agent 路由、Bindings、Agent 配置
     ├── providers.md             # 20+ 模型提供商（Anthropic、OpenAI、Ollama 等）
     └── security.md              # 认证、访问控制、加固基线、事件响应
+```
 ```
 
 **共计约 1,400 行**结构化参考文档，覆盖 OpenClaw 所有核心功能。
